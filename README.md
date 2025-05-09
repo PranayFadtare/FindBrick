@@ -1,6 +1,6 @@
 # 🏠 PG Finder
 
-![PG Finder Banner](https://raw.githubusercontent.com/PranayFadtare/PG_Finder/main/assets/banner.png)
+![image](https://github.com/user-attachments/assets/f7291a7f-8e0d-4669-8e95-03c583587ba1)
 
 A modern web application to find, list, and manage Paying Guest (PG) accommodations.  
 Built with the MERN stack (MongoDB, Express, React, Node.js).
@@ -30,9 +30,12 @@ Built with the MERN stack (MongoDB, Express, React, Node.js).
 
 > Replace these links with your own screenshots in the `assets/` folder.
 
-| Home Page | Profile Page | Chat |
+| Post Page | Profile Page | Search |
 |-----------|--------------|------|
-| ![Home](assets/home.png) | ![Profile](assets/profile.png) | ![Chat](assets/chat.png) |
+| ![Uploading image.png…]()
+| ![image](https://github.com/user-attachments/assets/babec7b7-2e25-4fa4-955e-d52b7bd06423)
+ | ![image](https://github.com/user-attachments/assets/2ca884cf-e053-4145-b52d-99564f4a73db)
+ |
 
 ---
 
