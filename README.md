@@ -28,14 +28,17 @@ Built with the MERN stack (MongoDB, Express, React, Node.js).
 
 ## 📸 Screenshots
 
-> Replace these links with your own screenshots in the `assets/` folder.
 
-| Post Page | Profile Page | Search |
-|-----------|--------------|------|
-| ![Uploading image.png…]()
-| ![image](https://github.com/user-attachments/assets/babec7b7-2e25-4fa4-955e-d52b7bd06423)
- | ![image](https://github.com/user-attachments/assets/2ca884cf-e053-4145-b52d-99564f4a73db)
- |
+**Post Page** 
+![image](https://github.com/user-attachments/assets/6cbbb817-f3b9-4bff-99b9-d5de0f795106)
+
+
+**Profile Page**
+![image](https://github.com/user-attachments/assets/527c80da-83b5-4afe-8d97-ae5d2216bb1d)
+
+
+**Search**
+![image](https://github.com/user-attachments/assets/73033a46-91af-4a45-9991-c811f4485cab)
 
 ---
 
