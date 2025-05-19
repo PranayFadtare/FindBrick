@@ -5,9 +5,13 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 100;
 
   a {
     transition: all 0.4s ease;
+    position: relative;
+    z-index: 101;
 
     @include sm {
       display: none;
@@ -23,6 +27,8 @@ nav {
     display: flex;
     align-items: center;
     gap: 50px;
+    position: relative;
+    z-index: 101;
 
     .logo {
       font-weight: bold;
@@ -54,6 +60,8 @@ nav {
     justify-content: flex-end;
     background-color: #fcf5f3;
     height: 100%;
+    position: relative;
+    z-index: 101;
 
     @include md {
       background-color: transparent;
@@ -62,12 +70,35 @@ nav {
     a {
       padding: 12px 24px;
       margin: 20px;
+      position: relative;
+      z-index: 102;
+      border-radius: 0;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    
+
+    .signup {
+      background-color: #fece51;
+      color: #222;
+      border: none;
+      border-radius: 0;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+      &:hover {
+        background: #ffd966;
+        color: #222;
+      }
     }
 
     .user {
       display: flex;
       align-items: center;
       font-weight: bold;
+      position: relative;
+      z-index: 102;
 
       img {
         width: 40px;
@@ -89,6 +120,7 @@ nav {
         cursor: pointer;
         border: none;
         position: relative;
+        z-index: 102;
         
         .notification {
           position: absolute;
@@ -106,13 +138,10 @@ nav {
       }
     }
 
-    .register {
-      background-color: #fece51;
-    }
-
     .menuIcon {
       display: none;
       z-index: 999;
+      position: relative;
 
       img {
         width: 36px;
@@ -126,7 +155,7 @@ nav {
     }
 
     .menu {
-      position: absolute;
+      position: fixed;
       top: 0;
       right: -50%;
       background-color: black;
@@ -139,6 +168,7 @@ nav {
       align-items: center;
       justify-content: center;
       font-size: 24px;
+      z-index: 998;
 
       &.active {
         right: 0;

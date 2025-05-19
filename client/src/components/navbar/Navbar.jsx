@@ -35,8 +35,8 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a href="/login">Sign in</a>
-            <a href="/register" className="register">Sign up</a>
+            <a href="/login" className="signIn">Sign in</a>
+            <a href="/register" className="signup">Sign up</a>
           </>
         )}
         <div className="menuIcon">
