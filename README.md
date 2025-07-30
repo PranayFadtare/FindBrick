@@ -1,4 +1,4 @@
-# 🏠 PG Finder
+# 🏠 FindBrick
 
 ![image](https://github.com/user-attachments/assets/f7291a7f-8e0d-4669-8e95-03c583587ba1)
 
