@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/f7291a7f-8e0d-4669-8e95-03c583587ba1)
 
-A modern web application to find, list, and manage Paying Guest (PG) accommodations.  
+A modern web application to find, list, and manage properties accommodations.  
 Built with the MERN stack (MongoDB, Express, React, Node.js).
 
 ---
