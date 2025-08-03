@@ -1,7 +1,7 @@
 import "./singlePage.scss";
 import Slider from "../../components/slider/Slider";
 import Map from "../../components/map/Map";
-import { useNavigate, useLoaderData, redirect } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -11,13 +11,13 @@ function SinglePage() {
   const post = useLoaderData();
   const [saved, setSaved] = useState(post.isSaved);
   const { currentUser } = useContext(AuthContext);
-  
+  const navigate = useNavigate();
 
   const handleSave = async () => {
     if (!currentUser) {
-      redirect("/login");
+      navigate("/login");
+      return;
     }
-    // AFTER REACT 19 UPDATE TO USEOPTIMISTIK HOOK
     setSaved((prev) => !prev);
     try {
       await apiRequest.post("/users/save", { postId: post.id });
@@ -26,8 +26,22 @@ function SinglePage() {
       setSaved((prev) => !prev);
     }
   };
-    
-    
+
+  const handleSendMessage = async () => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
+    try {
+      // This will either create a new chat or return the existing one
+      // based on the backend logic we corrected.
+      await apiRequest.post("/chats", { receiverId: post.userId });
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="singlePage">
       <div className="details">
@@ -44,13 +58,16 @@ function SinglePage() {
                 <div className="price">$ {post.price}</div>
               </div>
               <div className="user">
-                <img src={post.user.avatar} alt="" />
+                <img src={post.user.avatar || "/noavatar.jpg"} alt="" />
                 <span>{post.user.username}</span>
               </div>
             </div>
-            <div className="bottom"  dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(post.postDetail.desc)
-              }}></div>
+            <div
+              className="bottom"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(post.postDetail.desc),
+              }}
+            ></div>
           </div>
         </div>
       </div>
@@ -83,7 +100,7 @@ function SinglePage() {
             <div className="feature">
               <img src="/fee.png" alt="" />
               <div className="featureText">
-                <span>Income Fees</span>
+                <span>Income Policy</span>
                 <p>{post.postDetail.income}</p>
               </div>
             </div>
@@ -96,7 +113,7 @@ function SinglePage() {
             </div>
             <div className="size">
               <img src="/bed.png" alt="" />
-              <span>{post.bedroom}beds</span>
+              <span>{post.bedroom} beds</span>
             </div>
             <div className="size">
               <img src="/bath.png" alt="" />
@@ -118,17 +135,17 @@ function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src="/pet.png" alt="" />
+              <img src="/bus.png" alt="" />
               <div className="featureText">
                 <span>Bus Stop</span>
-                <p>{post.postDetail.bus} away</p>
+                <p>{post.postDetail.bus}m away</p>
               </div>
             </div>
             <div className="feature">
-              <img src="/fee.png" alt="" />
+              <img src="/restaurant.png" alt="" />
               <div className="featureText">
                 <span>Restaurant</span>
-                <p>{post.postDetail.restaurant} away</p>
+                <p>{post.postDetail.restaurant}m away</p>
               </div>
             </div>
           </div>
@@ -137,13 +154,19 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button>
-              <img src="/chat.png" alt="" />
-              Send a Message
-            </button>
-            <button onClick={handleSave} style={{
+            {/* Don't show button if the user is the owner of the post */}
+            {currentUser?.id !== post.userId && (
+              <button onClick={handleSendMessage}>
+                <img src="/chat.png" alt="" />
+                Send a Message
+              </button>
+            )}
+            <button
+              onClick={handleSave}
+              style={{
                 backgroundColor: saved ? "#fece51" : "white",
-              }}>
+              }}
+            >
               <img src="/save.png" alt="" />
               {saved ? "Place Saved" : "Save the Place"}
             </button>

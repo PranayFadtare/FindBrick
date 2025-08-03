@@ -19,7 +19,7 @@ function Navbar() {
       <div className="left">
         <a href="/" className="logo">
           <img src="/logo.png" alt="" />
-          <span>PG-FINDER</span>
+          <span>BrickFind</span>
         </a>
        
       </div>

@@ -1,3 +1,5 @@
+// socket/app.js
+
 import { Server } from "socket.io";
 
 const io = new Server({
@@ -9,10 +11,17 @@ const io = new Server({
 let onlineUser = [];
 
 const addUser = (userId, socketId) => {
-  const userExits = onlineUser.find((user) => user.userId === userId);
-  if (!userExits) {
+  // Find if the user already exists
+  const userIndex = onlineUser.findIndex((user) => user.userId === userId);
+
+  if (userIndex !== -1) {
+    // If user exists, update their socketId to the newest one
+    onlineUser[userIndex].socketId = socketId;
+  } else {
+    // If user doesn't exist, add them to the array
     onlineUser.push({ userId, socketId });
   }
+  console.log("Users online:", onlineUser);
 };
 
 const removeUser = (socketId) => {
@@ -40,6 +49,4 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen(4000);
-
-console.log("Socket server is running on port 4000");
+io.listen("4000");

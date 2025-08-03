@@ -1,3 +1,5 @@
+// api/controllers/message.controller.js
+
 import prisma from "../lib/prisma.js";
 
 export const addMessage = async (req, res) => {
@@ -30,7 +32,7 @@ export const addMessage = async (req, res) => {
         id: chatId,
       },
       data: {
-        seenBy: [tokenUserId],
+        seenBy: [tokenUserId], // Correctly reset seenBy to just the sender
         lastMessage: text,
       },
     });
