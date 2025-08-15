@@ -9,9 +9,9 @@ Built with the MERN stack (MongoDB, Express, React, Node.js).
 
 ## ✨ Features
 
-- 🔍 **Search PGs:** Find PGs by location, price, and amenities.
+- 🔍 **Search properties:** Find properties by location, price, and amenities.
 - 📝 **User Profiles:** Manage your profile and listings.
-- 🏠 **List Your PG:** Add and update your own PG listings.
+- 🏠 **List Your properties:** Add and update your own properties listings.
 - 💬 **Chat:** Built-in chat for direct communication.
 - 💾 **Save Listings:** Bookmark your favorite PGs.
 - 🔒 **Authentication:** Secure login and registration.
