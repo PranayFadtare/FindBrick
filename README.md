@@ -40,6 +40,10 @@ Built with the MERN stack (MongoDB, Express, React, Node.js).
 **Search**
 ![image](https://github.com/user-attachments/assets/73033a46-91af-4a45-9991-c811f4485cab)
 
+**Postman**
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/364813ec-ca64-446c-90b8-c08917d1dd19" />
+
+
 ---
 
 ## 🛠️ Getting Started
